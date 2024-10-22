@@ -336,6 +336,15 @@
 //   }
 // }
 
+// Skapa ett program där ni väljer 3 resmål efter en rimlig budget. kom på något sätt för att välja rankingordning över era 3
+//  val (vilket resmål ni helst hade velat ha om det finns tillgängligt) Loopa sen igenom listan med resmål för att se om ni
+//  kan hitta någon av era alternativ. Om fler än en hittas så ska den som är högst på er lista väljas.
+
+// EXTRA - hitta den billigaste resan respektive den dyraste resan
+
+// for (let key in cities) {
+//   console.log(key);
+// }
 const cities = {
   Stockholm: 200,
   "New York": 4500,
@@ -588,22 +597,41 @@ const cities = {
   Tegucigalpa: 21000,
   "San Salvador": 21100,
 };
-const destination = {
-  maxPrice: 6000,
-  minPrice: 5800,
-};
 
-const myTrip = [];
-const array2 = Object.values(destination);
-const array = Object.values(cities);
-console.log(array);
-console.log(array2);
+// for (let key in cities) {
+//   console.log(key);
 
-for (let i = 0; i < array.length; i++) {
-  if (array[i] <= destination.maxPrice && array[i] > destination.minPrice) {
-    myTrip.push(array[i]);
+//   console.log(cities[key]);
+// }
+
+// const cityArray = Object.entries(cities);
+// console.log(cityArray);
+// cityArray.map((item) => {
+//   console.log(Object.assign(item));
+// });
+
+const travels = [
+  {
+    location: "Barcelona",
+    ranking: 1,
+  },
+  {
+    location: "Bangladesh",
+    ranking: 2,
+  },
+  { location: "London", ranking: 3 },
+];
+
+for (let i = 0; i < travels.length; i++) {
+  for (let key in cities) {
+    // console.log(cities[key]);
+    // console.log(key);
+
+    if (travels[i].location === key) {
+      console.log(
+        `${travels[i].location} is number ${travels[i].ranking} expensive: ${cities[key]}`
+      );
+    }
   }
 }
-console.log(myTrip);
-
-// const ourSuggestion = [];
+// kan ju inte jämföra variabler i en loop då jämför de om o om igen ju.hur?
